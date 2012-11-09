@@ -18,6 +18,7 @@
 		C0A5F8F6164D58A000A3EFC3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A5F8F5164D58A000A3EFC3 /* Default-568h@2x.png */; };
 		C0A5F8F9164D58A000A3EFC3 /* CookingCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A5F8F8164D58A000A3EFC3 /* CookingCameraViewController.m */; };
 		C0A5F8FC164D58A000A3EFC3 /* CookingCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A5F8FA164D58A000A3EFC3 /* CookingCameraViewController.xib */; };
+		C0A5F903164D5E0D00A3EFC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A5F902164D5E0D00A3EFC3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C0A5F8F7164D58A000A3EFC3 /* CookingCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CookingCameraViewController.h; sourceTree = "<group>"; };
 		C0A5F8F8164D58A000A3EFC3 /* CookingCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CookingCameraViewController.m; sourceTree = "<group>"; };
 		C0A5F8FB164D58A000A3EFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CookingCameraViewController.xib; sourceTree = "<group>"; };
+		C0A5F902164D5E0D00A3EFC3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A5F903164D5E0D00A3EFC3 /* AVFoundation.framework in Frameworks */,
 				C0A5F8E0164D58A000A3EFC3 /* UIKit.framework in Frameworks */,
 				C0A5F8E2164D58A000A3EFC3 /* Foundation.framework in Frameworks */,
 				C0A5F8E4164D58A000A3EFC3 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +76,7 @@
 		C0A5F8DE164D58A000A3EFC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0A5F902164D5E0D00A3EFC3 /* AVFoundation.framework */,
 				C0A5F8DF164D58A000A3EFC3 /* UIKit.framework */,
 				C0A5F8E1164D58A000A3EFC3 /* Foundation.framework */,
 				C0A5F8E3164D58A000A3EFC3 /* CoreGraphics.framework */,
@@ -255,10 +259,12 @@
 		C0A5F900164D58A000A3EFC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 礼 持田 (7Q8AT7RTV2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cookingcamera/cookingcamera-Prefix.pch";
 				INFOPLIST_FILE = "cookingcamera/cookingcamera-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2D927B8E-2DF4-403F-A9EF-78CA6AB56CB1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
