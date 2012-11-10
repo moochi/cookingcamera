@@ -7,6 +7,7 @@
 //
 
 #import "CookingCameraViewController.h"
+#import "SendFormViewController.h"
 
 @interface CookingCameraViewController ()
 {
@@ -15,6 +16,7 @@
 }
 
 @property (nonatomic,strong) UIView *baseView;
+@property (nonatomic,strong) UIImageView *frameView;
 
 @end
 
@@ -25,7 +27,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.baseView = [[UIView alloc] initWithFrame:self.view.frame];
+    NSInteger height = 450;
+    if (self.view.frame.size.width != 320) {
+        height = 900;
+    }
+    CGSize baseViewSize = CGSizeMake(self.view.frame.size.width, height);
+
+    self.baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, baseViewSize.width, baseViewSize.height)];
     [self.view addSubview:self.baseView];
     
     // キャプチャセッションを作る
@@ -67,6 +75,11 @@
     
     [_session startRunning];
     
+    // フレーム
+    self.frameView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frame"]];
+    //[self.frameView setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:self.frameView];
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setTitle:@"shutter" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(shutterDownAction) forControlEvents:UIControlEventTouchUpInside];
@@ -96,8 +109,10 @@
              // キャプチャしたデータを取る
              NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
              // 押されたボタンにキャプチャした静止画を設定する
-             UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
-             [self.view addSubview:view];
+             
+             SendFormViewController *nextView = [[SendFormViewController alloc] initWithNibName:@"SendFormViewController" bundle:nil];
+             [nextView setImage:[UIImage imageWithData:data]];
+             [self.navigationController pushViewController:nextView animated:NO];
          }
      }];
 }

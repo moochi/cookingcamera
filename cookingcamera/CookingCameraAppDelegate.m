@@ -17,7 +17,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[CookingCameraViewController alloc] initWithNibName:@"CookingCameraViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
     return YES;
 }
